@@ -1,6 +1,7 @@
 // Code your solution in this file!
-// Note that the naming convention *RHS (right hand side) is employed to mean 
-// *Parameter
+// Note 
+// 1. That the naming convention *RHS (right hand side) is employed to mean *Parameter.
+// 2. A null array indicates failure.
 
 const returnFirstTwoDrivers = function (arrayDriversRHS){
   //Assert that the parameter is an array.
@@ -42,12 +43,9 @@ const fareTripler = (fareRHS) => fareRHS * 3;
 
 
 function selectDifferentDrivers(arrayOfDriversRHS, functionRHS){
-  if (functionRHS === returnFirstTwoDrivers)
-    return returnFirstTwoDrivers(arrayOfDriversRHS);
+  //If functionRHS is neither of the expected functions, then return a null array.
+  if (functionRHS !== returnFirstTwoDrivers && functionRHS !== returnLastTwoDrivers)
+    return [null];  
 
-  if (functionRHS === returnLastTwoDrivers)
-    return returnLastTwoDrivers(arrayOfDriversRHS);
-
-  //if neither of the expected functions are passed, then return a null array.
-  return [null];
+  return functionRHS(arrayOfDriversRHS);
 }
